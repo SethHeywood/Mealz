@@ -38,8 +38,14 @@ class RecipeObject {
         recipes.append(newRecipe)
     }
     
+    func sortRecipes() {
+        recipes = recipes.sorted { (lhs: Recipe, rhs: Recipe) -> Bool in
+            return lhs.title < rhs.title
+        }
+    }
+    
     func editRecipe(selection: Int, ttl: String, yld: Int, pHour: Int, pMin: Int, cHour: Int, cMin: Int, rHour: Int, rMin: Int){
-     
+        
         recipes[selection].title = ttl
         recipes[selection].yield = yld
         recipes[selection].prepHour = pHour
@@ -74,6 +80,7 @@ class RecipeObject {
                 for var i = 0; i < pDirections.count; i++ {
                     recipeBook.addRecipe(pTitle[i], yld: pYield[i], pHour: pPrepHour[i], pMin: pPrepMin[i], cHour: pCookHour[i], cMin: pCookMin[i], rHour: pReadyHour[i], rMin: pReadyMin[i], ingred: pIngredients[i], direct: pDirections[i])
                 }
+                self.sortRecipes()
                 NSNotificationCenter.defaultCenter().postNotificationName("RecipeTable", object: nil)
             }
             else {
@@ -139,7 +146,6 @@ class RecipeObject {
             }
         }
     }
-
     
     // converts a string to an integer
     func stringToInt(val: String) -> Int {

@@ -9,7 +9,7 @@
 import UIKit
 
 class RecipeVC: UITableViewController, UITableViewDataSource {
-
+    
     
     @IBOutlet var table: UITableView!
     
@@ -21,12 +21,12 @@ class RecipeVC: UITableViewController, UITableViewDataSource {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadList:",name:"RecipeTable", object: nil)
     }
-
+    
     
     func loadList(notification: NSNotification){
         self.tableView.reloadData()
     }
-
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -66,6 +66,6 @@ class RecipeVC: UITableViewController, UITableViewDataSource {
             let nextVC:ViewRecipeVC = segue.destinationViewController as ViewRecipeVC
             nextVC.row = tableView.indexPathForSelectedRow()?.row
         }
-    }    
-
+    }
+    
 }
