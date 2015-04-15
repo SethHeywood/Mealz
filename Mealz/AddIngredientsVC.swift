@@ -23,7 +23,7 @@ class AddIngredientsVC: UIViewController {
         addIngredientsTextView.text = ING
     }
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        self.view.endEditing(true);
-    }
+//    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+//        self.view.endEditing(true);
+//    }
 }

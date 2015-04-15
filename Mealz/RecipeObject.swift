@@ -57,18 +57,18 @@ class RecipeObject {
     func loadRecipes() {
         var query = PFQuery(className: "Recipes")
         query.getObjectInBackgroundWithId("0h4bmjUfZv") {
-            (recipe: PFObject!, error: NSError!) -> Void in
+            (recipe: PFObject?, error: NSError?) -> Void in
             if error == nil {
-                var pTitle = recipe.objectForKey("title") as [String]
-                var pYield = recipe.objectForKey("yield") as [Int]
-                var pPrepHour = recipe.objectForKey("prepHour") as [Int]
-                var pPrepMin = recipe.objectForKey("prepMin") as [Int]
-                var pCookHour = recipe.objectForKey("cookHour") as [Int]
-                var pCookMin = recipe.objectForKey("cookMin") as [Int]
-                var pReadyHour = recipe.objectForKey("readyHour") as [Int]
-                var pReadyMin = recipe.objectForKey("readyMin") as [Int]
-                var pIngredients = recipe.objectForKey("ingredients") as [String]
-                var pDirections = recipe.objectForKey("directions") as [String]
+                var pTitle = recipe!.objectForKey("title") as! [String]
+                var pYield = recipe!.objectForKey("yield") as! [Int]
+                var pPrepHour = recipe!.objectForKey("prepHour") as! [Int]
+                var pPrepMin = recipe!.objectForKey("prepMin") as! [Int]
+                var pCookHour = recipe!.objectForKey("cookHour") as! [Int]
+                var pCookMin = recipe!.objectForKey("cookMin") as! [Int]
+                var pReadyHour = recipe!.objectForKey("readyHour") as! [Int]
+                var pReadyMin = recipe!.objectForKey("readyMin") as! [Int]
+                var pIngredients = recipe!.objectForKey("ingredients") as! [String]
+                var pDirections = recipe!.objectForKey("directions") as! [String]
                 
                 
                 for var i = 0; i < pDirections.count; i++ {
@@ -77,7 +77,7 @@ class RecipeObject {
                 NSNotificationCenter.defaultCenter().postNotificationName("RecipeTable", object: nil)
             }
             else {
-                NSLog("%@", error)
+                NSLog("%@", error!)
             }
         }
     }
@@ -88,7 +88,7 @@ class RecipeObject {
         var query = PFQuery(className: "Recipes")
         
         query.getObjectInBackgroundWithId("0h4bmjUfZv") {
-            (query: PFObject!, error: NSError!) -> Void in
+            (query: PFObject?, error: NSError?) -> Void in
             if error == nil {
                 var pTitle = [String]()
                 var pYield = [Int]()
@@ -114,28 +114,28 @@ class RecipeObject {
                     pDirections.append(recipeBook.recipes[i].directions)
                 }
                 
-                query.setObject(pTitle, forKey: "title")
-                query.setObject(pYield, forKey: "yield")
-                query.setObject(pPrepHour, forKey: "prepHour")
-                query.setObject(pPrepMin, forKey: "prepMin")
-                query.setObject(pCookHour, forKey: "cookHour")
-                query.setObject(pCookMin, forKey: "cookMin")
-                query.setObject(pReadyHour, forKey: "readyHour")
-                query.setObject(pReadyMin, forKey: "readyMin")
-                query.setObject(pIngredients, forKey: "ingredients")
-                query.setObject(pDirections, forKey: "directions")
+                query!.setObject(pTitle, forKey: "title")
+                query!.setObject(pYield, forKey: "yield")
+                query!.setObject(pPrepHour, forKey: "prepHour")
+                query!.setObject(pPrepMin, forKey: "prepMin")
+                query!.setObject(pCookHour, forKey: "cookHour")
+                query!.setObject(pCookMin, forKey: "cookMin")
+                query!.setObject(pReadyHour, forKey: "readyHour")
+                query!.setObject(pReadyMin, forKey: "readyMin")
+                query!.setObject(pIngredients, forKey: "ingredients")
+                query!.setObject(pDirections, forKey: "directions")
                 
-                query.saveInBackgroundWithBlock {
-                    (success: Bool!, error: NSError!) -> Void in
-                    if (success != nil) {
-                        NSLog("Object created with id: \(query.objectId)")
+                query!.saveInBackgroundWithBlock {
+                    (success: Bool, error: NSError?) -> Void in
+                    if (success == true) {
+                        NSLog("Object created with id: \(query!.objectId)")
                     } else {
-                        NSLog("%@", error)
+                        NSLog("%@", error!)
                     }
                 }
             }
             else{
-                NSLog("%@", error)
+                NSLog("%@", error!)
             }
         }
     }

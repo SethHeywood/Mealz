@@ -36,7 +36,7 @@ class ViewRecipeVC: UIViewController {
     
     func populate() {
         titleLabel.text = recipeBook.recipes[row].title
-        servingsLabel.text = NSString(format: "%d servings", recipeBook.recipes[row].yield)
+        servingsLabel.text = NSString(format: "%d servings", recipeBook.recipes[row].yield) as String
         
         hour = recipeBook.recipes[row].cookHour
         min = recipeBook.recipes[row].cookMin
@@ -45,15 +45,15 @@ class ViewRecipeVC: UIViewController {
                 cookTimeLabel.text = "Instant"
             }
             else {
-                cookTimeLabel.text = NSString(format: "%d minutes", min)
+                cookTimeLabel.text = NSString(format: "%d minutes", min) as String
             }
         }
         else {
             if (min == 0){
-                cookTimeLabel.text = NSString(format: "%d hours", hour)
+                cookTimeLabel.text = NSString(format: "%d hours", hour) as String
             }
             else {
-                cookTimeLabel.text = NSString(format: "%d hours %d minutes", hour, min)
+                cookTimeLabel.text = NSString(format: "%d hours %d minutes", hour, min) as String
             }
         }
         
@@ -64,15 +64,15 @@ class ViewRecipeVC: UIViewController {
                 prepTimeLabel.text = "Instant"
             }
             else {
-                prepTimeLabel.text = NSString(format: "%d minutes", min)
+                prepTimeLabel.text = NSString(format: "%d minutes", min) as String
             }
         }
         else {
             if (min == 0){
-                prepTimeLabel.text = NSString(format: "%d hours", hour)
+                prepTimeLabel.text = NSString(format: "%d hours", hour) as String
             }
             else {
-                prepTimeLabel.text = NSString(format: "%d hours %d minutes", hour, min)
+                prepTimeLabel.text = NSString(format: "%d hours %d minutes", hour, min) as String
             }
         }
         
@@ -83,15 +83,15 @@ class ViewRecipeVC: UIViewController {
                 readyTimeLabel.text = "Instant"
             }
             else {
-                readyTimeLabel.text = NSString(format: "%d minutes", min)
+                readyTimeLabel.text = NSString(format: "%d minutes", min) as String
             }
         }
         else {
             if (min == 0){
-                readyTimeLabel.text = NSString(format: "%d hours", hour)
+                readyTimeLabel.text = NSString(format: "%d hours", hour) as String
             }
             else {
-                readyTimeLabel.text = NSString(format: "%d hours %d minutes", hour, min)
+                readyTimeLabel.text = NSString(format: "%d hours %d minutes", hour, min) as String
             }
         }
         
@@ -102,7 +102,7 @@ class ViewRecipeVC: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "editRecipe") {
-            let nextVC:EditRecipeVC = segue.destinationViewController as EditRecipeVC
+            let nextVC:EditRecipeVC = segue.destinationViewController as! EditRecipeVC
             nextVC.row = row
         }
     }
