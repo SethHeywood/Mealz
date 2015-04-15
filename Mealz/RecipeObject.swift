@@ -62,8 +62,8 @@ class RecipeObject {
     
     func loadRecipes() {
         var query = PFQuery(className: "Recipes")
-        query.getObjectInBackgroundWithId("0h4bmjUfZv") {
-            (recipe: PFObject!, error: NSError!) -> Void in
+        query.getObjectInBackgroundWithId("0h4bmjUfZv", block: {
+            (recipe: PFObject!, error: NSError?) -> Void in
             if error == nil {
                 var pTitle = recipe.objectForKey("title") as [String]
                 var pYield = recipe.objectForKey("yield") as [Int]
@@ -84,9 +84,9 @@ class RecipeObject {
                 NSNotificationCenter.defaultCenter().postNotificationName("RecipeTable", object: nil)
             }
             else {
-                NSLog("%@", error)
+                NSLog("%@", error!)
             }
-        }
+        })
     }
     
     
@@ -94,8 +94,8 @@ class RecipeObject {
         
         var query = PFQuery(className: "Recipes")
         
-        query.getObjectInBackgroundWithId("0h4bmjUfZv") {
-            (query: PFObject!, error: NSError!) -> Void in
+        query.getObjectInBackgroundWithId("0h4bmjUfZv", block: {
+            (query: PFObject!, error: NSError?) -> Void in
             if error == nil {
                 var pTitle = [String]()
                 var pYield = [Int]()
@@ -142,9 +142,9 @@ class RecipeObject {
                 }
             }
             else{
-                NSLog("%@", error)
+                NSLog("%@", error!)
             }
-        }
+        })
     }
     
     // converts a string to an integer
