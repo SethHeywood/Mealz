@@ -36,6 +36,8 @@ class RecipeObject {
         var newRecipe = Recipe(title: ttl, yield: yld, prepHour: pHour, prepMin: pMin, cookHour: cHour, cookMin: cMin, readyHour: rHour, readyMin: rMin, ingredients: ingred, directions: direct)
         
         recipes.append(newRecipe)
+        // Always sort the list after a recipe is added
+        sortRecipes()
     }
     
     func sortRecipes() {
