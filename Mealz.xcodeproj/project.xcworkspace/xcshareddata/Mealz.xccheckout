@@ -10,6 +10,8 @@
 	<string>Mealz</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>78306E0F0E9D46D880048EC977039B10B29BA96D</key>
+		<string>https://github.com/tianyanw/MyGameSystem</string>
 		<key>A191881F245FD7701F567D2415D5578BAF800527</key>
 		<string>https://github.com/SethHeywood/Mealz.git</string>
 	</dict>
@@ -17,6 +19,8 @@
 	<string>Mealz.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>78306E0F0E9D46D880048EC977039B10B29BA96D</key>
+		<string>../../..</string>
 		<key>A191881F245FD7701F567D2415D5578BAF800527</key>
 		<string>../..</string>
 	</dict>
@@ -28,6 +32,14 @@
 	<string>A191881F245FD7701F567D2415D5578BAF800527</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>78306E0F0E9D46D880048EC977039B10B29BA96D</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

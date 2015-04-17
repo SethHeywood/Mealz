@@ -37,7 +37,7 @@ class RecipeVC: UITableViewController, UITableViewDataSource {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell: RecipeCell = tableView.dequeueReusableCellWithIdentifier("Cell") as! RecipeCell
+        let cell: RecipeCell = tableView.dequeueReusableCellWithIdentifier("Cell") as RecipeCell
         let item = recipeBook.recipes[indexPath.row]
         
         cell.recipeTitle.text = item.title
@@ -63,7 +63,7 @@ class RecipeVC: UITableViewController, UITableViewDataSource {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "viewRecipe") {
-            let nextVC:ViewRecipeVC = segue.destinationViewController as! ViewRecipeVC
+            let nextVC:ViewRecipeVC = segue.destinationViewController as ViewRecipeVC
             nextVC.row = tableView.indexPathForSelectedRow()?.row
         }
     }    
