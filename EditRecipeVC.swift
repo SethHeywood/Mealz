@@ -70,11 +70,11 @@ class EditRecipeVC: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "editIngredients") {
-            let nextVC:EditIngredientsVC = segue.destinationViewController as! EditIngredientsVC
+            let nextVC:EditIngredientsVC = segue.destinationViewController as EditIngredientsVC
             nextVC.row = row
         }
         else if (segue.identifier == "editDirections") {
-            let nextVC:EditDirectionsVC = segue.destinationViewController as! EditDirectionsVC
+            let nextVC:EditDirectionsVC = segue.destinationViewController as EditDirectionsVC
             nextVC.row = row
         }
     }

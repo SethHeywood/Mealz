@@ -30,6 +30,8 @@ class RecipeObject {
     
     var recipes = Array<Recipe>()
     
+    // var to store the currently logged in user
+    var currentUser = PFUser.currentUser()
     
     func addRecipe(ttl: String, yld: Int, pHour: Int, pMin: Int, cHour: Int, cMin: Int, rHour: Int, rMin: Int, ingred: String, direct: String){
         
@@ -56,19 +58,28 @@ class RecipeObject {
     
     func loadRecipes() {
         var query = PFQuery(className: "Recipes")
+        
+        /*************************************************************************************/
+        // This should be the only line needed to filter the recipes loaded to only those
+        // belonging to the currently logged in user. I am unable to save recipes though,
+        // so have not been able to check
+        
+        query.whereKey("owner", equalTo: self.currentUser.objectId)
+        /*************************************************************************************/
+        
         query.getObjectInBackgroundWithId("0h4bmjUfZv") {
             (recipe: PFObject?, error: NSError?) -> Void in
             if error == nil {
-                var pTitle = recipe!.objectForKey("title") as! [String]
-                var pYield = recipe!.objectForKey("yield") as! [Int]
-                var pPrepHour = recipe!.objectForKey("prepHour") as! [Int]
-                var pPrepMin = recipe!.objectForKey("prepMin") as! [Int]
-                var pCookHour = recipe!.objectForKey("cookHour") as! [Int]
-                var pCookMin = recipe!.objectForKey("cookMin") as! [Int]
-                var pReadyHour = recipe!.objectForKey("readyHour") as! [Int]
-                var pReadyMin = recipe!.objectForKey("readyMin") as! [Int]
-                var pIngredients = recipe!.objectForKey("ingredients") as! [String]
-                var pDirections = recipe!.objectForKey("directions") as! [String]
+                var pTitle = recipe!.objectForKey("title") as [String]
+                var pYield = recipe!.objectForKey("yield") as [Int]
+                var pPrepHour = recipe!.objectForKey("prepHour") as [Int]
+                var pPrepMin = recipe!.objectForKey("prepMin") as [Int]
+                var pCookHour = recipe!.objectForKey("cookHour") as [Int]
+                var pCookMin = recipe!.objectForKey("cookMin") as [Int]
+                var pReadyHour = recipe!.objectForKey("readyHour") as [Int]
+                var pReadyMin = recipe!.objectForKey("readyMin") as [Int]
+                var pIngredients = recipe!.objectForKey("ingredients") as [String]
+                var pDirections = recipe!.objectForKey("directions") as [String]
                 
                 
                 for var i = 0; i < pDirections.count; i++ {
@@ -84,7 +95,17 @@ class RecipeObject {
     
     
     func saveRecipeToParse() {
+        /*************************************************************************************/
+        // I am unable to save recipes. I am not sure what the id being used below is exactly
+        // but assume its specific to the way Parse was set up. Either way, all that needs to
+        // be added here, is for the currently logged in users id to be saved as a field in
+        // the Recipes class on parse. Each recipe should have this field and then can be filtered
+        // by it when loading them. The line would be something like what is below...
         
+        // query.whereKey("owner", equalTo: self.currentUser.objectId)
+        /*************************************************************************************/
+        
+        //setObject(pTitle, forKey: "title")
         var query = PFQuery(className: "Recipes")
         
         query.getObjectInBackgroundWithId("0h4bmjUfZv") {

@@ -41,6 +41,9 @@
 		50EEEC131A9530D3008DA1B2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50EEEC121A9530D3008DA1B2 /* Images.xcassets */; };
 		50EEEC161A9530D3008DA1B2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50EEEC141A9530D3008DA1B2 /* LaunchScreen.xib */; };
 		50EEEC221A9530D3008DA1B2 /* MealzTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EEEC211A9530D3008DA1B2 /* MealzTests.swift */; };
+		94D776441AE0C34B00518CF9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D776431AE0C34B00518CF9 /* LoginViewController.swift */; };
+		94D776461AE0C35B00518CF9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D776451AE0C35B00518CF9 /* RegisterViewController.swift */; };
+		94D776481AE0D71900518CF9 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 94D776471AE0D71900518CF9 /* splash.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +96,9 @@
 		50EEEC1B1A9530D3008DA1B2 /* MealzTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MealzTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		50EEEC201A9530D3008DA1B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50EEEC211A9530D3008DA1B2 /* MealzTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealzTests.swift; sourceTree = "<group>"; };
+		94D776431AE0C34B00518CF9 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		94D776451AE0C35B00518CF9 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		94D776471AE0D71900518CF9 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +175,8 @@
 			isa = PBXGroup;
 			children = (
 				50EEEC0F1A9530D3008DA1B2 /* Main.storyboard */,
+				94D776431AE0C34B00518CF9 /* LoginViewController.swift */,
+				94D776451AE0C35B00518CF9 /* RegisterViewController.swift */,
 				504AB3E01AC212AE001AC802 /* RecipeObject.swift */,
 				504F133C1AC4D9AB002673B8 /* RecipeCell.swift */,
 				504AB3E21AC21354001AC802 /* RecipeVC.swift */,
@@ -190,6 +198,7 @@
 		50EEEC091A9530D3008DA1B2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				94D776471AE0D71900518CF9 /* splash.png */,
 				50EEEC141A9530D3008DA1B2 /* LaunchScreen.xib */,
 				504F135C1ACC7548002673B8 /* Mealz-Bridging-Header.h */,
 				50EEEC0B1A9530D3008DA1B2 /* AppDelegate.swift */,
@@ -300,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				504AB3EE1AC21D09001AC802 /* checkbox-unchecked-md.png in Resources */,
+				94D776481AE0D71900518CF9 /* splash.png in Resources */,
 				504AB3EF1AC21D09001AC802 /* checked_checkbox.png in Resources */,
 				50EEEC111A9530D3008DA1B2 /* Main.storyboard in Resources */,
 				502541551ACDC26600912B5D /* Chef.png in Resources */,
@@ -325,6 +335,7 @@
 				50DA023C1ACE2679001F321D /* EditIngredientsVC.swift in Sources */,
 				504F133F1AC9D104002673B8 /* ViewRecipeVC.swift in Sources */,
 				504AB3E51AC2136B001AC802 /* ShoppingListVC.swift in Sources */,
+				94D776441AE0C34B00518CF9 /* LoginViewController.swift in Sources */,
 				504AB3EB1AC2140C001AC802 /* AddRecipeVC.swift in Sources */,
 				502541571ACDC7C800912B5D /* ShoppingListCell.swift in Sources */,
 				5025415E1ACE12C200912B5D /* EditRecipeVC.swift in Sources */,
@@ -332,6 +343,7 @@
 				504AB3E11AC212AE001AC802 /* RecipeObject.swift in Sources */,
 				504AB3E31AC21354001AC802 /* RecipeVC.swift in Sources */,
 				50EEEC0C1A9530D3008DA1B2 /* AppDelegate.swift in Sources */,
+				94D776461AE0C35B00518CF9 /* RegisterViewController.swift in Sources */,
 				50DA023E1ACE268A001F321D /* EditDirectionsVC.swift in Sources */,
 				504F13431AC9DAD4002673B8 /* AddDirectionsVC.swift in Sources */,
 				502541591ACDC95D00912B5D /* ShoppingListObject.swift in Sources */,

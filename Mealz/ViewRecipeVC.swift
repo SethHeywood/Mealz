@@ -102,7 +102,7 @@ class ViewRecipeVC: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "editRecipe") {
-            let nextVC:EditRecipeVC = segue.destinationViewController as! EditRecipeVC
+            let nextVC:EditRecipeVC = segue.destinationViewController as EditRecipeVC
             nextVC.row = row
         }
     }
