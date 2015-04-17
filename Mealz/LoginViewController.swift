@@ -6,7 +6,7 @@
 //
 // This view controller is a login screen. Users must have a registered account to log in,
 // and will receive an error if they don't. From this view, a user can also navigate to a register
-// view controller to create an account.
+// view controller to create an account
 //
 
 import UIKit
