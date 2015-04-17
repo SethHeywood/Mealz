@@ -17,6 +17,7 @@ class ViewRecipeVC: UIViewController {
     @IBOutlet weak var readyTimeLabel: UILabel!
     @IBOutlet weak var ingredientsTextView: UITextView!
     @IBOutlet weak var directionsTextView: UITextView!
+    @IBOutlet weak var recipeImage: UIImageView!
     
     var row: Int!
     var hour: Int!
@@ -37,6 +38,8 @@ class ViewRecipeVC: UIViewController {
     func populate() {
         titleLabel.text = recipeBook.recipes[row].title
         servingsLabel.text = NSString(format: "%d servings", recipeBook.recipes[row].yield) as String
+        
+        recipeImage.image = recipeBook.recipes[row].image
         
         hour = recipeBook.recipes[row].cookHour
         min = recipeBook.recipes[row].cookMin
