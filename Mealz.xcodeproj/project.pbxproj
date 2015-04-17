@@ -169,19 +169,8 @@
 			isa = PBXGroup;
 			children = (
 				50EEEC0F1A9530D3008DA1B2 /* Main.storyboard */,
-				504AB3E01AC212AE001AC802 /* RecipeObject.swift */,
-				504F133C1AC4D9AB002673B8 /* RecipeCell.swift */,
-				504AB3E21AC21354001AC802 /* RecipeVC.swift */,
-				504AB3EA1AC2140C001AC802 /* AddRecipeVC.swift */,
-				504F13401AC9DABF002673B8 /* AddIngredientsVC.swift */,
-				504F13421AC9DAD4002673B8 /* AddDirectionsVC.swift */,
-				504F133E1AC9D104002673B8 /* ViewRecipeVC.swift */,
-				5025415D1ACE12C200912B5D /* EditRecipeVC.swift */,
-				50DA023B1ACE2679001F321D /* EditIngredientsVC.swift */,
-				50DA023D1ACE268A001F321D /* EditDirectionsVC.swift */,
-				502541581ACDC95D00912B5D /* ShoppingListObject.swift */,
-				502541561ACDC7C800912B5D /* ShoppingListCell.swift */,
-				504AB3E41AC2136B001AC802 /* ShoppingListVC.swift */,
+				7C6F70751AE08982009372C8 /* View Controllers */,
+				7C6F70781AE089F8009372C8 /* Models */,
 				50EEEC091A9530D3008DA1B2 /* Supporting Files */,
 			);
 			path = Mealz;
@@ -217,6 +206,65 @@
 				50EEEC201A9530D3008DA1B2 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7C6F70751AE08982009372C8 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7C6F707A1AE08A3A009372C8 /* Recipes */,
+				7C6F70791AE08A26009372C8 /* Shopping List */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		7C6F70761AE089C5009372C8 /* Adding */ = {
+			isa = PBXGroup;
+			children = (
+				504AB3EA1AC2140C001AC802 /* AddRecipeVC.swift */,
+				504F13401AC9DABF002673B8 /* AddIngredientsVC.swift */,
+				504F13421AC9DAD4002673B8 /* AddDirectionsVC.swift */,
+			);
+			name = Adding;
+			sourceTree = "<group>";
+		};
+		7C6F70771AE089E3009372C8 /* Viewing */ = {
+			isa = PBXGroup;
+			children = (
+				504F133E1AC9D104002673B8 /* ViewRecipeVC.swift */,
+				5025415D1ACE12C200912B5D /* EditRecipeVC.swift */,
+				50DA023B1ACE2679001F321D /* EditIngredientsVC.swift */,
+				50DA023D1ACE268A001F321D /* EditDirectionsVC.swift */,
+			);
+			name = Viewing;
+			sourceTree = "<group>";
+		};
+		7C6F70781AE089F8009372C8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				504AB3E01AC212AE001AC802 /* RecipeObject.swift */,
+				504F133C1AC4D9AB002673B8 /* RecipeCell.swift */,
+				502541581ACDC95D00912B5D /* ShoppingListObject.swift */,
+				502541561ACDC7C800912B5D /* ShoppingListCell.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		7C6F70791AE08A26009372C8 /* Shopping List */ = {
+			isa = PBXGroup;
+			children = (
+				504AB3E41AC2136B001AC802 /* ShoppingListVC.swift */,
+			);
+			name = "Shopping List";
+			sourceTree = "<group>";
+		};
+		7C6F707A1AE08A3A009372C8 /* Recipes */ = {
+			isa = PBXGroup;
+			children = (
+				504AB3E21AC21354001AC802 /* RecipeVC.swift */,
+				7C6F70761AE089C5009372C8 /* Adding */,
+				7C6F70771AE089E3009372C8 /* Viewing */,
+			);
+			name = Recipes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

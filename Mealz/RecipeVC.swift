@@ -17,9 +17,13 @@ class RecipeVC: UITableViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        recipeBook.loadRecipes()
+        //recipeBook.loadRecipes()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadList:",name:"RecipeTable", object: nil)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.tableView.reloadData()
     }
 
     
@@ -42,6 +46,7 @@ class RecipeVC: UITableViewController, UITableViewDataSource {
         
         cell.recipeTitle.text = item.title
         cell.readyTime.text = NSString(format: "%d hours %d minutes", item.readyHour, item.readyMin) as String
+        cell.recipeImage.image = item.image
         
         return cell
     }
@@ -57,7 +62,7 @@ class RecipeVC: UITableViewController, UITableViewDataSource {
             recipeBook.deleteRecipe(indexPath.row)
             
             self.tableView.reloadData()
-            recipeBook.saveRecipeToParse()
+            //recipeBook.saveRecipeToParse()
         }
     }
     
