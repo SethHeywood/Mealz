@@ -23,6 +23,7 @@ struct Recipe {
     var readyMin: Int
     var ingredients: String
     var directions: String
+    var picture = UIImage(named: "Chef.png")
 }
 
 
@@ -30,15 +31,19 @@ class RecipeObject {
     
     var recipes = Array<Recipe>()
     
+    init(){
+        loadRecipes()
+    }
     
-    func addRecipe(ttl: String, yld: Int, pHour: Int, pMin: Int, cHour: Int, cMin: Int, rHour: Int, rMin: Int, ingred: String, direct: String){
+    
+    func addRecipe(ttl: String, yld: Int, pHour: Int, pMin: Int, cHour: Int, cMin: Int, rHour: Int, rMin: Int, ingred: String, direct: String, pic: UIImage){
         
-        var newRecipe = Recipe(title: ttl, yield: yld, prepHour: pHour, prepMin: pMin, cookHour: cHour, cookMin: cMin, readyHour: rHour, readyMin: rMin, ingredients: ingred, directions: direct)
+        var newRecipe = Recipe(title: ttl, yield: yld, prepHour: pHour, prepMin: pMin, cookHour: cHour, cookMin: cMin, readyHour: rHour, readyMin: rMin, ingredients: ingred, directions: direct, picture: pic)
         
         recipes.append(newRecipe)
     }
     
-    func editRecipe(selection: Int, ttl: String, yld: Int, pHour: Int, pMin: Int, cHour: Int, cMin: Int, rHour: Int, rMin: Int){
+    func editRecipe(selection: Int, ttl: String, yld: Int, pHour: Int, pMin: Int, cHour: Int, cMin: Int, rHour: Int, rMin: Int, pic: UIImage){
      
         recipes[selection].title = ttl
         recipes[selection].yield = yld
@@ -48,13 +53,28 @@ class RecipeObject {
         recipes[selection].cookMin = cMin
         recipes[selection].readyHour = rHour
         recipes[selection].readyMin = rMin
+        recipes[selection].picture = pic
     }
     
     func deleteRecipe(selection: Int){
         recipes.removeAtIndex(selection)
     }
     
+    
+    
+    
     func loadRecipes() {
+        
+//        // DOWNLOAD IMAGES
+//        let userImageFile = anotherPhoto["imageFile"] as! PFFile
+//        userImageFile.getDataInBackgroundWithBlock {
+//            (imageData: NSData!, error: NSError!) -> Void in
+//            if error == nil {
+//                let image = UIImage(data:imageData)
+//            }
+//        }
+        
+        
         var query = PFQuery(className: "Recipes")
         query.getObjectInBackgroundWithId("0h4bmjUfZv") {
             (recipe: PFObject?, error: NSError?) -> Void in
@@ -69,18 +89,41 @@ class RecipeObject {
                 var pReadyMin = recipe!.objectForKey("readyMin") as! [Int]
                 var pIngredients = recipe!.objectForKey("ingredients") as! [String]
                 var pDirections = recipe!.objectForKey("directions") as! [String]
+                var pPicture = UIImage(named: "Chef.png")
                 
                 
                 for var i = 0; i < pDirections.count; i++ {
-                    recipeBook.addRecipe(pTitle[i], yld: pYield[i], pHour: pPrepHour[i], pMin: pPrepMin[i], cHour: pCookHour[i], cMin: pCookMin[i], rHour: pReadyHour[i], rMin: pReadyMin[i], ingred: pIngredients[i], direct: pDirections[i])
+                    recipeBook.addRecipe(pTitle[i], yld: pYield[i], pHour: pPrepHour[i], pMin: pPrepMin[i], cHour: pCookHour[i], cMin: pCookMin[i], rHour: pReadyHour[i], rMin: pReadyMin[i], ingred: pIngredients[i], direct: pDirections[i], pic: pPicture!)
                 }
+                
                 NSNotificationCenter.defaultCenter().postNotificationName("RecipeTable", object: nil)
             }
             else {
                 NSLog("%@", error!)
             }
         }
+        
     }
+   
+
+    
+//    func savePictureToPare(){
+//        
+//        var imageFile = [PFFile]()
+//        
+//        for var i = 0; i <= recipeBook.recipes.count; i++ {
+//            
+//            var imageData = [UIImagePNGRepresentation(recipeBook.recipes[i].picture)]
+//            imageFile[i] = PFFile(data: imageData)
+//            
+//            var userPhoto = PFObject(className:"UserPhoto")
+//            userPhoto["imageName"] = "picture"
+//            userPhoto["imageFile"] = imageFile[i]
+//            userPhoto.saveInBackground()
+//        }
+//        
+//
+//    }
     
     
     func saveRecipeToParse() {
@@ -100,6 +143,8 @@ class RecipeObject {
                 var pReadyMin = [Int]()
                 var pIngredients = [String]()
                 var pDirections = [String]()
+                var pPicture = UIImage(named: "Chef.png")
+                
                 
                 for var i = 0; i < recipeBook.recipes.count; i++ {
                     pTitle.append(recipeBook.recipes[i].title)
@@ -112,6 +157,7 @@ class RecipeObject {
                     pReadyMin.append(recipeBook.recipes[i].readyMin)
                     pIngredients.append(recipeBook.recipes[i].ingredients)
                     pDirections.append(recipeBook.recipes[i].directions)
+                    recipeBook.recipes[i].picture = pPicture
                 }
                 
                 query!.setObject(pTitle, forKey: "title")
@@ -124,6 +170,8 @@ class RecipeObject {
                 query!.setObject(pReadyMin, forKey: "readyMin")
                 query!.setObject(pIngredients, forKey: "ingredients")
                 query!.setObject(pDirections, forKey: "directions")
+                query!.setObject(pPicture!, forKey: "picture")
+
                 
                 query!.saveInBackgroundWithBlock {
                     (success: Bool, error: NSError?) -> Void in

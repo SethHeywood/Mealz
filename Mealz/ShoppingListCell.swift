@@ -8,9 +8,8 @@
 
 import UIKit
 
-class ShoppingListCell: UITableViewCell {
+class ShoppingListCell: UITableViewCell{
     
     @IBOutlet weak var ingredientLabel: UILabel!
-
     
 }

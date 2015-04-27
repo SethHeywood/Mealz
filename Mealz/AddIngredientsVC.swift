@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddIngredientsVC: UIViewController {
+class AddIngredientsVC: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var addIngredientsTextView: UITextView!
     
@@ -21,9 +21,11 @@ class AddIngredientsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addIngredientsTextView.text = ING
+        addIngredientsTextView.delegate = self
     }
     
-//    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-//        self.view.endEditing(true);
-//    }
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        view.endEditing(true)
+        super.touchesBegan(touches as Set<NSObject>, withEvent: event)
+    }
 }

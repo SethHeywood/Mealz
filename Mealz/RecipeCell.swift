@@ -13,5 +13,6 @@ class RecipeCell: UITableViewCell {
     @IBOutlet weak var recipeTitle: UILabel!
     
     @IBOutlet weak var readyTime: UILabel!
-
+    
+    @IBOutlet weak var picture: UIImageView!
 }

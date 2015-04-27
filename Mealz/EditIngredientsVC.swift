@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditIngredientsVC: UIViewController {
+class EditIngredientsVC: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var editIngredientsTV: UITextView!
     var row: Int!
@@ -21,14 +21,22 @@ class EditIngredientsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         editIngredientsTV.text = recipeBook.recipes[row].ingredients
+        editIngredientsTV.delegate = self
+    }
+    
+    // called when 'return' key pressed. return NO to ignore.
+    func textFieldShouldReturn(textField: UITextField) -> Bool
+    {
+        textField.resignFirstResponder()
+        return true;
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-//    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-//        self.view.endEditing(true);
-//    }
-    
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        view.endEditing(true)
+        super.touchesBegan(touches as Set<NSObject>, withEvent: event)
+    }
 }

@@ -17,6 +17,7 @@ class ViewRecipeVC: UIViewController {
     @IBOutlet weak var readyTimeLabel: UILabel!
     @IBOutlet weak var ingredientsTextView: UITextView!
     @IBOutlet weak var directionsTextView: UITextView!
+    @IBOutlet weak var picture: UIImageView!
     
     var row: Int!
     var hour: Int!
@@ -37,6 +38,7 @@ class ViewRecipeVC: UIViewController {
     func populate() {
         titleLabel.text = recipeBook.recipes[row].title
         servingsLabel.text = NSString(format: "%d servings", recipeBook.recipes[row].yield) as String
+        self.picture!.image = recipeBook.recipes[row].picture
         
         hour = recipeBook.recipes[row].cookHour
         min = recipeBook.recipes[row].cookMin
@@ -45,15 +47,15 @@ class ViewRecipeVC: UIViewController {
                 cookTimeLabel.text = "Instant"
             }
             else {
-                cookTimeLabel.text = NSString(format: "%d minutes", min) as String
+                cookTimeLabel.text = NSString(format: "%d minute(s)", min) as String
             }
         }
         else {
             if (min == 0){
-                cookTimeLabel.text = NSString(format: "%d hours", hour) as String
+                cookTimeLabel.text = NSString(format: "%d hour(s)", hour) as String
             }
             else {
-                cookTimeLabel.text = NSString(format: "%d hours %d minutes", hour, min) as String
+                cookTimeLabel.text = NSString(format: "%d hr %d min", hour, min) as String
             }
         }
         
@@ -64,15 +66,15 @@ class ViewRecipeVC: UIViewController {
                 prepTimeLabel.text = "Instant"
             }
             else {
-                prepTimeLabel.text = NSString(format: "%d minutes", min) as String
+                prepTimeLabel.text = NSString(format: "%d minute(s)", min) as String
             }
         }
         else {
             if (min == 0){
-                prepTimeLabel.text = NSString(format: "%d hours", hour) as String
+                prepTimeLabel.text = NSString(format: "%d hour(s)", hour) as String
             }
             else {
-                prepTimeLabel.text = NSString(format: "%d hours %d minutes", hour, min) as String
+                prepTimeLabel.text = NSString(format: "%d hr %d min", hour, min) as String
             }
         }
         
@@ -83,15 +85,15 @@ class ViewRecipeVC: UIViewController {
                 readyTimeLabel.text = "Instant"
             }
             else {
-                readyTimeLabel.text = NSString(format: "%d minutes", min) as String
+                readyTimeLabel.text = NSString(format: "%d minute(s)", min) as String
             }
         }
         else {
             if (min == 0){
-                readyTimeLabel.text = NSString(format: "%d hours", hour) as String
+                readyTimeLabel.text = NSString(format: "%d hour(s)", hour) as String
             }
             else {
-                readyTimeLabel.text = NSString(format: "%d hours %d minutes", hour, min) as String
+                readyTimeLabel.text = NSString(format: "%d hr %d min", hour, min) as String
             }
         }
         
@@ -99,6 +101,15 @@ class ViewRecipeVC: UIViewController {
         ingredientsTextView.text = recipeBook.recipes[row].ingredients
         directionsTextView.text = recipeBook.recipes[row].directions
     }
+    
+    
+    
+    @IBAction func addToShoppingList(sender: UIButton) {
+        shoppingList.addToShoppingList(recipeBook.recipes[row].ingredients)
+        shoppingList.saveShoppingListToParse()
+    }
+    
+
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "editRecipe") {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddDirectionsVC: UIViewController {
+class AddDirectionsVC: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var addDirectionsTextView: UITextView!
     
@@ -21,10 +21,18 @@ class AddDirectionsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addDirectionsTextView.text = DIR
+        addDirectionsTextView.delegate = self
     }
     
-//    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-//        self.view.endEditing(true);
-//    }
-
+    // called when 'return' key pressed. return NO to ignore.
+    func textFieldShouldReturn(textField: UITextField) -> Bool
+    {
+        textField.resignFirstResponder()
+        return true;
+    }
+    
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        view.endEditing(true)
+        super.touchesBegan(touches as Set<NSObject>, withEvent: event)
+    }
 }

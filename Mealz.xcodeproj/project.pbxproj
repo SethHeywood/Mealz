@@ -34,6 +34,7 @@
 		504F13571ACC7486002673B8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 504F13561ACC7486002673B8 /* SystemConfiguration.framework */; };
 		504F13591ACC7493002673B8 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 504F13581ACC7493002673B8 /* libz.dylib */; };
 		504F135B1ACC74A0002673B8 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 504F135A1ACC74A0002673B8 /* libsqlite3.dylib */; };
+		5075F2BC1AED6249000870BB /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5075F2BB1AED6249000870BB /* CheckBox.swift */; };
 		50DA023C1ACE2679001F321D /* EditIngredientsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DA023B1ACE2679001F321D /* EditIngredientsVC.swift */; };
 		50DA023E1ACE268A001F321D /* EditDirectionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50DA023D1ACE268A001F321D /* EditDirectionsVC.swift */; };
 		50EEEC0C1A9530D3008DA1B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EEEC0B1A9530D3008DA1B2 /* AppDelegate.swift */; };
@@ -82,6 +83,7 @@
 		504F13581ACC7493002673B8 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		504F135A1ACC74A0002673B8 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		504F135C1ACC7548002673B8 /* Mealz-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mealz-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		5075F2BB1AED6249000870BB /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		50DA023B1ACE2679001F321D /* EditIngredientsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditIngredientsVC.swift; sourceTree = "<group>"; };
 		50DA023D1ACE268A001F321D /* EditDirectionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditDirectionsVC.swift; sourceTree = "<group>"; };
 		50EEEC061A9530D3008DA1B2 /* Mealz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mealz.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +148,34 @@
 			name = frameworks;
 			sourceTree = "<group>";
 		};
+		5075F2B91AE83378000870BB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				504AB3E01AC212AE001AC802 /* RecipeObject.swift */,
+				504F133C1AC4D9AB002673B8 /* RecipeCell.swift */,
+				502541581ACDC95D00912B5D /* ShoppingListObject.swift */,
+				502541561ACDC7C800912B5D /* ShoppingListCell.swift */,
+				5075F2BB1AED6249000870BB /* CheckBox.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		5075F2BA1AE8339D000870BB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				504AB3E21AC21354001AC802 /* RecipeVC.swift */,
+				504AB3EA1AC2140C001AC802 /* AddRecipeVC.swift */,
+				504F13421AC9DAD4002673B8 /* AddDirectionsVC.swift */,
+				504F13401AC9DABF002673B8 /* AddIngredientsVC.swift */,
+				504F133E1AC9D104002673B8 /* ViewRecipeVC.swift */,
+				5025415D1ACE12C200912B5D /* EditRecipeVC.swift */,
+				50DA023D1ACE268A001F321D /* EditDirectionsVC.swift */,
+				50DA023B1ACE2679001F321D /* EditIngredientsVC.swift */,
+				504AB3E41AC2136B001AC802 /* ShoppingListVC.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		50EEEBFD1A9530D3008DA1B2 = {
 			isa = PBXGroup;
 			children = (
@@ -169,19 +199,8 @@
 			isa = PBXGroup;
 			children = (
 				50EEEC0F1A9530D3008DA1B2 /* Main.storyboard */,
-				504AB3E01AC212AE001AC802 /* RecipeObject.swift */,
-				504F133C1AC4D9AB002673B8 /* RecipeCell.swift */,
-				504AB3E21AC21354001AC802 /* RecipeVC.swift */,
-				504AB3EA1AC2140C001AC802 /* AddRecipeVC.swift */,
-				504F13401AC9DABF002673B8 /* AddIngredientsVC.swift */,
-				504F13421AC9DAD4002673B8 /* AddDirectionsVC.swift */,
-				504F133E1AC9D104002673B8 /* ViewRecipeVC.swift */,
-				5025415D1ACE12C200912B5D /* EditRecipeVC.swift */,
-				50DA023B1ACE2679001F321D /* EditIngredientsVC.swift */,
-				50DA023D1ACE268A001F321D /* EditDirectionsVC.swift */,
-				502541581ACDC95D00912B5D /* ShoppingListObject.swift */,
-				502541561ACDC7C800912B5D /* ShoppingListCell.swift */,
-				504AB3E41AC2136B001AC802 /* ShoppingListVC.swift */,
+				5075F2B91AE83378000870BB /* Models */,
+				5075F2BA1AE8339D000870BB /* Controllers */,
 				50EEEC091A9530D3008DA1B2 /* Supporting Files */,
 			);
 			path = Mealz;
@@ -336,6 +355,7 @@
 				504F13431AC9DAD4002673B8 /* AddDirectionsVC.swift in Sources */,
 				502541591ACDC95D00912B5D /* ShoppingListObject.swift in Sources */,
 				504F13411AC9DABF002673B8 /* AddIngredientsVC.swift in Sources */,
+				5075F2BC1AED6249000870BB /* CheckBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

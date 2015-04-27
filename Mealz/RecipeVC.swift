@@ -13,12 +13,13 @@ class RecipeVC: UITableViewController, UITableViewDataSource {
     
     @IBOutlet var table: UITableView!
     
+    override func viewWillAppear(animated: Bool) {
+        self.tableView.reloadData()
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        recipeBook.loadRecipes()
-        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "loadList:",name:"RecipeTable", object: nil)
     }
 
@@ -26,6 +27,7 @@ class RecipeVC: UITableViewController, UITableViewDataSource {
     func loadList(notification: NSNotification){
         self.tableView.reloadData()
     }
+    
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -41,7 +43,8 @@ class RecipeVC: UITableViewController, UITableViewDataSource {
         let item = recipeBook.recipes[indexPath.row]
         
         cell.recipeTitle.text = item.title
-        cell.readyTime.text = NSString(format: "%d hours %d minutes", item.readyHour, item.readyMin) as String
+        cell.readyTime.text = NSString(format: "Ready Time: %d hours %d minutes", item.readyHour, item.readyMin) as String
+        cell.picture.image = item.picture
         
         return cell
     }
